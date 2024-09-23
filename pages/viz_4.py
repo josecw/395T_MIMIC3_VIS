@@ -61,7 +61,7 @@ def main():
     sidebar()
 
     st.title('MIMIC III Visualization #4')
-    st.header(f'Diagnoses and Lab Readings')
+    st.header(f'Lab Readings')
     
     data_load_state = st.text('Loading data...')
     

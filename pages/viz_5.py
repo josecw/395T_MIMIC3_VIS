@@ -31,12 +31,10 @@ def load_data(yr_start: int,
     data =  pd.merge(patients, icustays, on='SUBJECT_ID')
     data.drop(['ROW_ID_x','ROW_ID_y'], axis=1, inplace=True)
 
-    DATE_COLS = ['DOB','DOD','INTIME','OUTTIME']
+    DATE_COLS = ['DOB','DOD','INTIME']
 
     for col in DATE_COLS:
         data[col] = pd.to_datetime(data[col])
-
-    data['LAST_TS'] = np.max(data['OUTTIME'])
 
     data = data[data['DOB'].dt.year >=2000]
 
